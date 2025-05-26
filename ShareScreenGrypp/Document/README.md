@@ -1,6 +1,4 @@
-![ImagePicker](https://github.com/dotsquares395/ScreenSharing/blob/main/ScreenSharing//screenshare.png)
-![ImagePicker](https://github.com/dotsquares395/ScreenSharing/blob/main/ScreenSharing/screensharecode)
-
+![ImagePicker](https://github.com/dotsquares395/ShareScreenGrypp/blob/main/ShareScreenGrypp/VIewController/Screenshot_ScreenShare.png)
 
 ## Description
 
@@ -18,7 +16,7 @@
 **ShareScreenGrypp** "Call the connectScreenSharing function from your view controller’s button action, passing your app’s UIWindow. Ensure that appView is properly set to the interface you want to share during screen sharing."
 
 ```swift
-    GryppTokManager.connectScreenSharing(appWindow: scene.window ?? UIWindow())
+    GryppTokManager.connectScreenSharing(appWindow:  UIWindow()) // Pass your app window
 ```
 
 **ShareScreenGrypp** please allow permission
@@ -28,9 +26,14 @@
   - microphone
 ```
 
+![ImagePicker](https://github.com/dotsquares395/ShareScreenGrypp/blob/main/ShareScreenGrypp/VIewController/Screenshot_Permission.png)
+![ImagePicker](https://github.com/dotsquares395/ShareScreenGrypp/blob/main/ShareScreenGrypp/VIewController/Screenshot_Maker.png)
+![ImagePicker](https://github.com/dotsquares395/ShareScreenGrypp/blob/main/ShareScreenGrypp/VIewController/Screenshot_EndSission.png)
+
+
 ## Installation
 
-**ScreenSharing** is available through [CocoaPods](https://cocoapods.org/pods/ScreenSharing). To install
+**ScreenSharing** is available through [CocoaPods](https://cocoapods.org/pods/ShareScreenGrypp). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
