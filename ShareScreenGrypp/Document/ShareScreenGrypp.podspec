@@ -13,8 +13,6 @@ Pod::Spec.new do |spec|
   spec.source_files =  'ShareScreenGrypp/*.{swift}'
   spec.swift_versions = '5.0'
   spec.xcconfig     = { "ENABLE_BITCODE" => "NO" }
-  s.screenshots = 'https://ibb.co/hd6rHtJ',
-                'https://ibb.co/R31zQf5'
   s.documentation_url = 'https://yourwebsite.com/yourframework/docs'
   s.social_media_url  = 'https://twitter.com/yourtwitter'
                 
