@@ -12,9 +12,6 @@ Pod::Spec.new do |spec|
   spec.source       = {:git => "https://github.com/dotsquares395/ScreenSharing.git", :tag => spec.version}
   spec.source_files =  'ShareScreenGrypp/*.{swift}'
   spec.swift_versions = '5.0'
-  spec.xcconfig     = { "ENABLE_BITCODE" => "NO" }
-  s.documentation_url = 'https://yourwebsite.com/yourframework/docs'
-  s.social_media_url  = 'https://twitter.com/yourtwitter'
-                
+  
 end
 
