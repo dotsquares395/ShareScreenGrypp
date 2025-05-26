@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84CAFEBA2C2D299E00D9397B"
-               BuildableName = "GryppSDk.framework"
-               BlueprintName = "GryppSDk"
-               ReferencedContainer = "container:GryppSDk.xcodeproj">
+               BuildableName = "ShareScreenGrypp.framework"
+               BlueprintName = "ShareScreenGrypp"
+               ReferencedContainer = "container:ShareScreenGrypp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,19 +29,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84CAFEC42C2D299F00D9397B"
-               BuildableName = "GryppSDkTests.xctest"
-               BlueprintName = "GryppSDkTests"
-               ReferencedContainer = "container:GryppSDk.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -64,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84CAFEBA2C2D299E00D9397B"
-            BuildableName = "GryppSDk.framework"
-            BlueprintName = "GryppSDk"
-            ReferencedContainer = "container:GryppSDk.xcodeproj">
+            BuildableName = "ShareScreenGrypp.framework"
+            BlueprintName = "ShareScreenGrypp"
+            ReferencedContainer = "container:ShareScreenGrypp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
