@@ -4,8 +4,7 @@ Pod::Spec.new do |spec|
   spec.name         = "ShareScreenGrypp"
   spec.version      = "1.0.0"
   spec.summary      = "I've developed a custom SDK that enables the user's app screen to be displayed on the web-based PlayConsole."
-  spec.description  = "I’ve developed a custom SDK to share a user’s app screen with a web-based PlayConsole. It supports session control, marker drawing, and real-time agent cursor visibility for interactive support and collaboration between users and agents.
-"
+  spec.description  = "I’ve developed a custom SDK to share a user’s app screen with a web-based PlayConsole. It supports session control, marker drawing, and real-time agent cursor visibility for interactive support and collaboration between users and agents."
   spec.homepage     = "https://github.com/dotsquares395/ShareScreenGrypp"
   spec.license      =  "MIT"
   spec.authors      = { "dotsquares395" => "rohan.sharma@dotsquares.com" }
@@ -18,7 +17,6 @@ Pod::Spec.new do |spec|
                 'https://ibb.co/R31zQf5'
   s.documentation_url = 'https://yourwebsite.com/yourframework/docs'
   s.social_media_url  = 'https://twitter.com/yourtwitter'
-  end
                 
 end
 
