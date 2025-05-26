@@ -33,8 +33,8 @@
 
 ## Installation
 
-**ScreenSharing** is available through [CocoaPods](https://cocoapods.org/pods/ShareScreenGrypp). To install
-it, simply add the following line to your Podfile:
+**ScreenSharing** is available through [CocoaPods](https://cocoapods.org/pods/ShareScreenGrypp).
+ To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'ShareScreenGrypp'

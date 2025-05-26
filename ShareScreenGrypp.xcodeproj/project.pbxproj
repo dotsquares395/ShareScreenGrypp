@@ -26,6 +26,9 @@
 		84D374882DE495D8000DB6DC /* Screenshot_ScreenShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D374862DE495D8000DB6DC /* Screenshot_ScreenShare.png */; };
 		84D374892DE495D8000DB6DC /* Screenshot_Maker.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D374842DE495D8000DB6DC /* Screenshot_Maker.png */; };
 		84D3748A2DE495D8000DB6DC /* Screenshot_Permission.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D374852DE495D8000DB6DC /* Screenshot_Permission.png */; };
+		84D3748E2DE4A600000DB6DC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 84D3748B2DE4A600000DB6DC /* LICENSE */; };
+		84D3748F2DE4A600000DB6DC /* ShareScreenGrypp.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84D3748D2DE4A600000DB6DC /* ShareScreenGrypp.podspec */; };
+		84D374902DE4A600000DB6DC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84D3748C2DE4A600000DB6DC /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		84D374842DE495D8000DB6DC /* Screenshot_Maker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_Maker.png; sourceTree = "<group>"; };
 		84D374852DE495D8000DB6DC /* Screenshot_Permission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_Permission.png; sourceTree = "<group>"; };
 		84D374862DE495D8000DB6DC /* Screenshot_ScreenShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_ScreenShare.png; sourceTree = "<group>"; };
+		84D3748B2DE4A600000DB6DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		84D3748C2DE4A600000DB6DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84D3748D2DE4A600000DB6DC /* ShareScreenGrypp.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShareScreenGrypp.podspec; sourceTree = "<group>"; };
 		F51E15A26BD347EDBC128475 /* Pods-GryppSDk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GryppSDk.debug.xcconfig"; path = "Target Support Files/Pods-GryppSDk/Pods-GryppSDk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +139,9 @@
 		84D374622DE47638000DB6DC /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				84D3748B2DE4A600000DB6DC /* LICENSE */,
+				84D3748C2DE4A600000DB6DC /* README.md */,
+				84D3748D2DE4A600000DB6DC /* ShareScreenGrypp.podspec */,
 				84D374602DE47638000DB6DC /* GryppSDk.h */,
 				84D374612DE47638000DB6DC /* GryppSDk.docc */,
 			);
@@ -296,6 +305,9 @@
 				84D374882DE495D8000DB6DC /* Screenshot_ScreenShare.png in Resources */,
 				84D374892DE495D8000DB6DC /* Screenshot_Maker.png in Resources */,
 				84D3748A2DE495D8000DB6DC /* Screenshot_Permission.png in Resources */,
+				84D3748E2DE4A600000DB6DC /* LICENSE in Resources */,
+				84D3748F2DE4A600000DB6DC /* ShareScreenGrypp.podspec in Resources */,
+				84D374902DE4A600000DB6DC /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
