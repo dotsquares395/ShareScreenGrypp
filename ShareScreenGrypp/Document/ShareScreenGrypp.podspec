@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.authors      = { "dotsquares395" => "rohan.sharma@dotsquares.com" }
   spec.platform     = :ios, "15.0"
   spec.source       = {:git => "https://github.com/dotsquares395/ShareScreenGrypp.git", :tag => spec.version}
-  spec.source_files =  'ShareScreenGrypp/*.{swift}'
+  spec.source_files =  'ShareScreenGrypp/Document/*.{swift}'
   spec.swift_versions = '5.0'
   
 end
