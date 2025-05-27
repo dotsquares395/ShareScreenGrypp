@@ -10,12 +10,10 @@
 		842944FA2DDAF5440075A3F0 /* Pods_GryppSDk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F53E41B6FA93D573400A /* Pods_GryppSDk.framework */; };
 		842944FB2DDAF5440075A3F0 /* Pods_GryppSDk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F53E41B6FA93D573400A /* Pods_GryppSDk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84CAFEC62C2D299F00D9397B /* ShareScreenGrypp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CAFEBB2C2D299E00D9397B /* ShareScreenGrypp.framework */; };
-		84D3746B2DE47638000DB6DC /* GryppSDk.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D374602DE47638000DB6DC /* GryppSDk.h */; };
 		84D3746C2DE47638000DB6DC /* Redact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3745D2DE47638000DB6DC /* Redact.swift */; };
 		84D3746D2DE47638000DB6DC /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3745C2DE47638000DB6DC /* Enumerations.swift */; };
 		84D3746E2DE47638000DB6DC /* DraggableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3745B2DE47638000DB6DC /* DraggableButton.swift */; };
 		84D3746F2DE47638000DB6DC /* CustomeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3745A2DE47638000DB6DC /* CustomeAlert.swift */; };
-		84D374702DE47638000DB6DC /* GryppSDk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 84D374612DE47638000DB6DC /* GryppSDk.docc */; };
 		84D374712DE47638000DB6DC /* ScreenCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D374662DE47638000DB6DC /* ScreenCapturer.swift */; };
 		84D374722DE47638000DB6DC /* TouchCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3745E2DE47638000DB6DC /* TouchCaptureView.swift */; };
 		84D374732DE47638000DB6DC /* GryppTokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D374652DE47638000DB6DC /* GryppTokManager.swift */; };
@@ -26,9 +24,11 @@
 		84D374882DE495D8000DB6DC /* Screenshot_ScreenShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D374862DE495D8000DB6DC /* Screenshot_ScreenShare.png */; };
 		84D374892DE495D8000DB6DC /* Screenshot_Maker.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D374842DE495D8000DB6DC /* Screenshot_Maker.png */; };
 		84D3748A2DE495D8000DB6DC /* Screenshot_Permission.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D374852DE495D8000DB6DC /* Screenshot_Permission.png */; };
-		84D3748E2DE4A600000DB6DC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 84D3748B2DE4A600000DB6DC /* LICENSE */; };
-		84D3748F2DE4A600000DB6DC /* ShareScreenGrypp.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84D3748D2DE4A600000DB6DC /* ShareScreenGrypp.podspec */; };
-		84D374902DE4A600000DB6DC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84D3748C2DE4A600000DB6DC /* README.md */; };
+		84D374962DE587AD000DB6DC /* GryppSDk.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D374912DE587AD000DB6DC /* GryppSDk.h */; };
+		84D374972DE587AD000DB6DC /* GryppSDk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 84D374922DE587AD000DB6DC /* GryppSDk.docc */; };
+		84D374982DE587AD000DB6DC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84D374942DE587AD000DB6DC /* README.md */; };
+		84D374992DE587AD000DB6DC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 84D374932DE587AD000DB6DC /* LICENSE */; };
+		84D3749A2DE587AD000DB6DC /* ShareScreenGrypp.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84D374952DE587AD000DB6DC /* ShareScreenGrypp.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,6 @@
 		84D3745C2DE47638000DB6DC /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		84D3745D2DE47638000DB6DC /* Redact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redact.swift; sourceTree = "<group>"; };
 		84D3745E2DE47638000DB6DC /* TouchCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureView.swift; sourceTree = "<group>"; };
-		84D374602DE47638000DB6DC /* GryppSDk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GryppSDk.h; sourceTree = "<group>"; };
-		84D374612DE47638000DB6DC /* GryppSDk.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = GryppSDk.docc; sourceTree = "<group>"; };
 		84D374632DE47638000DB6DC /* GryppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GryppSession.swift; sourceTree = "<group>"; };
 		84D374652DE47638000DB6DC /* GryppTokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GryppTokManager.swift; sourceTree = "<group>"; };
 		84D374662DE47638000DB6DC /* ScreenCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCapturer.swift; sourceTree = "<group>"; };
@@ -77,9 +75,11 @@
 		84D374842DE495D8000DB6DC /* Screenshot_Maker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_Maker.png; sourceTree = "<group>"; };
 		84D374852DE495D8000DB6DC /* Screenshot_Permission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_Permission.png; sourceTree = "<group>"; };
 		84D374862DE495D8000DB6DC /* Screenshot_ScreenShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_ScreenShare.png; sourceTree = "<group>"; };
-		84D3748B2DE4A600000DB6DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		84D3748C2DE4A600000DB6DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		84D3748D2DE4A600000DB6DC /* ShareScreenGrypp.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShareScreenGrypp.podspec; sourceTree = "<group>"; };
+		84D374912DE587AD000DB6DC /* GryppSDk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GryppSDk.h; sourceTree = "<group>"; };
+		84D374922DE587AD000DB6DC /* GryppSDk.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = GryppSDk.docc; sourceTree = "<group>"; };
+		84D374932DE587AD000DB6DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		84D374942DE587AD000DB6DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84D374952DE587AD000DB6DC /* ShareScreenGrypp.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShareScreenGrypp.podspec; sourceTree = "<group>"; };
 		F51E15A26BD347EDBC128475 /* Pods-GryppSDk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GryppSDk.debug.xcconfig"; path = "Target Support Files/Pods-GryppSDk/Pods-GryppSDk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,18 +136,6 @@
 			path = Comman;
 			sourceTree = "<group>";
 		};
-		84D374622DE47638000DB6DC /* Document */ = {
-			isa = PBXGroup;
-			children = (
-				84D3748B2DE4A600000DB6DC /* LICENSE */,
-				84D3748C2DE4A600000DB6DC /* README.md */,
-				84D3748D2DE4A600000DB6DC /* ShareScreenGrypp.podspec */,
-				84D374602DE47638000DB6DC /* GryppSDk.h */,
-				84D374612DE47638000DB6DC /* GryppSDk.docc */,
-			);
-			path = Document;
-			sourceTree = "<group>";
-		};
 		84D374642DE47638000DB6DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +160,12 @@
 		84D3746A2DE47638000DB6DC /* ShareScreenGrypp */ = {
 			isa = PBXGroup;
 			children = (
+				84D374912DE587AD000DB6DC /* GryppSDk.h */,
+				84D374922DE587AD000DB6DC /* GryppSDk.docc */,
+				84D374932DE587AD000DB6DC /* LICENSE */,
+				84D374942DE587AD000DB6DC /* README.md */,
+				84D374952DE587AD000DB6DC /* ShareScreenGrypp.podspec */,
 				84D3745F2DE47638000DB6DC /* Comman */,
-				84D374622DE47638000DB6DC /* Document */,
 				84D374642DE47638000DB6DC /* Model */,
 				84D374672DE47638000DB6DC /* VIewController */,
 			);
@@ -213,7 +205,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D3746B2DE47638000DB6DC /* GryppSDk.h in Headers */,
+				84D374962DE587AD000DB6DC /* GryppSDk.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,12 +294,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D374872DE495D8000DB6DC /* Screenshot_EndSission.png in Resources */,
+				84D374982DE587AD000DB6DC /* README.md in Resources */,
+				84D374992DE587AD000DB6DC /* LICENSE in Resources */,
+				84D3749A2DE587AD000DB6DC /* ShareScreenGrypp.podspec in Resources */,
 				84D374882DE495D8000DB6DC /* Screenshot_ScreenShare.png in Resources */,
 				84D374892DE495D8000DB6DC /* Screenshot_Maker.png in Resources */,
 				84D3748A2DE495D8000DB6DC /* Screenshot_Permission.png in Resources */,
-				84D3748E2DE4A600000DB6DC /* LICENSE in Resources */,
-				84D3748F2DE4A600000DB6DC /* ShareScreenGrypp.podspec in Resources */,
-				84D374902DE4A600000DB6DC /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,11 +363,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D374972DE587AD000DB6DC /* GryppSDk.docc in Sources */,
 				84D3746C2DE47638000DB6DC /* Redact.swift in Sources */,
 				84D3746D2DE47638000DB6DC /* Enumerations.swift in Sources */,
 				84D3746E2DE47638000DB6DC /* DraggableButton.swift in Sources */,
 				84D3746F2DE47638000DB6DC /* CustomeAlert.swift in Sources */,
-				84D374702DE47638000DB6DC /* GryppSDk.docc in Sources */,
 				84D374712DE47638000DB6DC /* ScreenCapturer.swift in Sources */,
 				84D374722DE47638000DB6DC /* TouchCaptureView.swift in Sources */,
 				84D374732DE47638000DB6DC /* GryppTokManager.swift in Sources */,
