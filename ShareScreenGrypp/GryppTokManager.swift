@@ -171,7 +171,7 @@ public class GryppTokManager: NSObject {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    self.showAlert(message: "Failed to parse response: \(error.localizedDescription)")
+                    self.showAlert(message: "Failed to parse json responce: \(error.localizedDescription)")
                 }
             }
         }.resume()
