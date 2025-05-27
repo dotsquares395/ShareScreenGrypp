@@ -101,8 +101,10 @@ class ScreenCapturer: NSObject, OTVideoCapture {
                 return
             }
 
-            let timestamp = CMTimeMake(value: Int64(mach_absolute_time()), timescale: 1000)
+            //let timestamp = CMTimeMake(value: Int64(mach_absolute_time()), timescale: 1000)
+            let timestamp = CMTime(value: Int64(mach_absolute_time()), timescale: 1000)
             self.videoFrame.timestamp = timestamp
+            //self.videoFrame.timestamp = timestamp
             self.videoFrame.orientation = .up
             self.videoFrame.format = OTVideoFormat(argbWithWidth: UInt32(cgImage.width),
                                                    height: UInt32(cgImage.height))

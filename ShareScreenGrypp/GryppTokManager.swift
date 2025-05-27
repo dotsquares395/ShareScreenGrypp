@@ -88,23 +88,36 @@ public class GryppTokManager: NSObject {
 //    }
     
     private func setupAppStateObservers() {
+        #if swift(>=4.2)
         backgroundObserver = NotificationCenter.default.addObserver(
-            forName: UIApplication.didEnterBackgroundNotification,  // Fixed name
+            forName: UIApplication.didEnterBackgroundNotification,
             object: nil,
             queue: .main
-        ) { [weak self] _ in
-            _ = self?.capturer?.stop()  // Explicitly ignore result
-        }
-
+        ) { [weak self] _ in _ = self?.capturer?.stop() }
+        #else
+        backgroundObserver = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.UIApplicationDidEnterBackground,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in _ = self?.capturer?.stop() }
+        #endif
+        
+        #if swift(>=4.2)
         foregroundObserver = NotificationCenter.default.addObserver(
-            forName: UIApplication.willEnterForegroundNotification,  // Fixed name
+            forName: UIApplication.willEnterForegroundNotification,
             object: nil,
             queue: .main
-        ) { [weak self] _ in
-            _ = self?.capturer?.start()  // Explicitly ignore result
-        }
+        ) { [weak self] _ in _ = self?.capturer?.start() }
+        #else
+        foregroundObserver = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.UIApplicationWillEnterForeground,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in _ = self?.capturer?.start() }
+        #endif
     }
-
+    
+    
     private func removeAppStateObservers() {
         if let observer = backgroundObserver {
             NotificationCenter.default.removeObserver(observer)
