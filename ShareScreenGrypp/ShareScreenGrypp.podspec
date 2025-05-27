@@ -11,7 +11,10 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "15.0"
   spec.source       = {:git => "https://github.com/dotsquares395/ShareScreenGrypp.git", :tag => spec.version}
   spec.source_files = '*.swift'
-  spec.swift_versions = '5.0'
+  spec.ios.deployment_target = '15.0'
+  spec.requires_arc = true
+  spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
+  spec.dependency 'OpenTok', '~> 2.0'  # Verify the correct version
   
 end
 
