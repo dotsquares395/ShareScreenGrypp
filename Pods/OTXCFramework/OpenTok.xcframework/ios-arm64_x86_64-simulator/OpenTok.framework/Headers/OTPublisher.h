@@ -227,6 +227,36 @@ typedef NS_ENUM(NSInteger, OTCameraCaptureFrameRate) {
  */
 @property(nonatomic) AVCaptureDevicePosition cameraPosition;
 
+/**
+ * The preferred flashlight (torch) mode for the camera. Setting this property to YES or NO
+ * indicates whether the publisher should enable or disable the camera's flashlight
+ * when available. Note that this is a preference and may not take effect if the
+ * active camera does not support flashlight functionality (for example, the front
+ * camera typically does not support a flashlight). If the publisher camera is
+ * enabled, getting this property returns the current flashlight mode; if the
+ * publisher camera is not enabled, getting this property returns the preferred
+ * flashlight mode.
+ */
+@property(nonatomic) BOOL cameraTorch;
+
+/**
+ * The preferred zoom factor (ratio) for the camera.
+ * A value of 1.0 represents no zoom (the default view). The value ranges
+ * from 0.5 to the maximum zoom factor. Values between 0.5 and 1.0
+ * represent ultra-wide-angle (zoom out) and values between 1.0 and the
+ * maximum zoom factor represent zooming in. The actual zoom factor
+ * applied is automatically clamped to the range supported by the active
+ * camera’s configuration  — if the camera does not support
+ * ultra-wide-angle, zoom factors set below 1.0 will not take effect and no
+ * zoom will be applied. For values over the maximum zoom factor supported by
+ * the camera, the zoom factor will be set with the max value. If the publisher
+ * camera is enabled, getting this property returns the current zoom factor; if
+ * the publisher camera is not enabled, getting this property returns the
+ * preferred zoom factor.
+ */
+@property(nonatomic) float cameraZoomFactor;
+
+
 @end
 
 /**

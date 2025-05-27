@@ -31,67 +31,99 @@ typedef NS_ENUM(int32_t, OTSessionConnectionStatus) {
 };
 
 /**
- * This is part of the
- * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+ * Defines settings for whether to use only your custom TURN servers or to use
+ * those servers in addition to OpenTok TURN servers. Defines values for the
+ * <OTSessionSettings.iceConfig> property.
  */
 typedef NS_ENUM(int32_t, OTSessionICEIncludeServers) {
     /**
-     * This is part of the
-     * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+     * Uses both Vonage Video API TURN servers and (if any added)
+     * custom TURN servers.
      */
     OTSessionICEIncludeServersAll,
 
     /**
-     * This is part of the
-     * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+     * Use only custom TURN servers.
      */
     OTSessionICEIncludeServersCustom,
 };
 
 /**
- * This is part of the
- * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+ * Defines settings for whether to use all ICE transport types (such as host, srflx, and TURN)
+ * to establish media connectivity or to only use TURN. Used in the <[OTSessionICEConfig transportPolicy]> setting.
  */
 typedef NS_ENUM(int32_t, OTSessionICETransportPolicy) {
     /**
-     * This is part of the
-     * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+     * The client will use all ICE candidate types (such as host, srflx, and TURN)
+     * to establish media connectivity.
      */
     OTSessionICETransportAll,
 
     /**
-     * This is part of the
-     * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+     * The client will force connectivity through TURN always and ignore all other ICE
+     * candidates.
      */
     OTSessionICETransportRelay,
 };
 
 /**
- * This is part of the
- * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+ * Defines the <OTSessionSettings.iceConfig> property.
+ * This defines the TURN servers to be used by the client in the session.
+ *
+ * For more information, see the
+ * <a target="_blank" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN servers</a>
+ * developer guide.
  */
 @interface OTSessionICEConfig : NSObject
 
-// True :  OpenTok TURN servers won't be used.
-// False (Default) : Use both OpenTok and Custom TURN servers. WebRTC will choose a turn server with best connectivity.
+/**
+ * Defines settings for whether to use only your custom TURN servers or to use
+ * those servers in addition to OpenTok TURN servers.
+ */
 @property(nonatomic, assign) enum OTSessionICEIncludeServers includeServers;
 
-// True :  Force connectivity through TURN server always.
-// False : Use TURN sever as a fallback when direct connectivity to media server fails.
+/**
+ * Whether to use all ICE transport types (such as host, srflx, and TURN)
+ * to establish media connectivity or to only use TURN.
+ */
 @property(nonatomic, assign) enum OTSessionICETransportPolicy transportPolicy;
 
-// Returns an NSarry with TURN servers added by addICEServerWithURL:
-// Each array row will have an NSDictionary with URL, UserName and Credential as keys.
+/**
+ * An NSArray of TURN servers added with <OTSessionICEConfig addICEServerWithURL:>.
+ * Each element in the array is an NSDictionary with turn_url, username,
+ * and credential as keys.
+ */
 @property(readonly) NSArray * _Nullable customIceServers;
 
-// This will be a constant and we need to decide on maximum limit
+/**
+ * Whether to filter out host ICE candidate types from the same local area network,
+ * forcing the application to *not* use the local network to
+ * establish media connectivity. See 
+ * <a target="_top" href="https://tokbox.com/developer/guides/mobile/ios/#ios-14-networking">this topic</a>.
+ */
+@property(nonatomic, assign) BOOL filterOutLanCandidates;
+
+/**
+ * The maximum number of custom TURN servers allowed.
+ */
 + (NSInteger) maxTURNServersLimit;
 
-// The errorPtr will be populated with error description (and ICE server won't be added) if
-// 1. URL is not valid
-// 2. User name and/or credential empty
-// 3. Maximum TURN servers limit reached already. (see maxUserTurnServersLimit)
-// if there are no TURN servers added, it will use OpenTok internal servers
+/**
+ * Adds a custom ICE server to be used by the session.
+ *
+ * @param turn_url The URL for the custom TURN server.
+ *
+ * @param user The username for the TURN server.
+ *
+ * @param credential The credential string for the TURN server.
+ *
+ * @param errorPtr This is set to an NSError when there is an error calling the method,
+ *   such as:
+ *
+ *   * The URL is not valid
+ *   * The user name or credential is empty
+ *   * The maximum TURN servers limit was already reached (see maxUserTurnServersLimit).
+ */
 - (void) addICEServerWithURL:(NSString *_Nonnull)turn_url
                     userName:(NSString *_Nonnull)username
                   credential:(NSString *_Nonnull)credential
@@ -114,8 +146,10 @@ typedef NS_ENUM(int32_t, OTSessionICETransportPolicy) {
 @property(nonatomic, assign) BOOL connectionEventsSuppressed;
 
 /**
- * This is part of the
- * <a target="_top" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN feature</a>.
+ * Defines the TURN servers to be used by the client in the OpenTok session.
+ * See the
+ * <a target="_top" href="https://tokbox.com/developer/guides/configurable-turn-servers/">configurable TURN servers</a>
+ * developer guide.
  */
 @property(nonatomic, strong) OTSessionICEConfig * _Nullable iceConfig;
 
@@ -148,6 +182,16 @@ typedef NS_ENUM(int32_t, OTSessionICETransportPolicy) {
  * separate peer connection is established between each endpoint.
  */
 @property(nonatomic) BOOL singlePeerConnection;
+
+/**
+ * Enables the session migration feature, allowing the client to remain connected during server rotation.
+ * The default value is <code>false</code> (session migration is not enabled). For more information, see
+ * <a href="https://tokbox.com/developer/guides/server-rotation/">Server Rotation and Session Migration</a>.
+ *
+ * <i>This is a beta feature</i>.
+ *
+ */
+@property(nonatomic) BOOL sessionMigration;
 
 @end
 

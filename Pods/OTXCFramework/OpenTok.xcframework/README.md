@@ -15,6 +15,8 @@ available as Pod "OpenTok").  Only XCFramework artifacts are supported
 * **An upcoming version of the SDK will remove support for FAT binaries.
 Version 2.20.0 of the SDK added support for XCFramework.**
 
+* **Version 2.29+ of the SDK only supports iOS 15 or higher.**
+
 * **Version 2.24+ of the SDK drops 32-bit support.**
 
 * **Version 2.24.2+ of the SDK only supports iOS 13 or higher.**
@@ -75,8 +77,8 @@ on GitHub.
 Interoperability
 ----------------
 
-Apps written with the OpenTok iOS SDK 2.28.3 can interoperate with OpenTok apps
-written with version 2.25+ of the OpenTok client SDKs:
+Apps written with the OpenTok iOS SDK 2.30.0 can interoperate with OpenTok apps
+written with version 2.28+ of the OpenTok client SDKs:
 
 * OpenTok.js
 * OpenTok Android SDK
@@ -147,29 +149,10 @@ for information on using the SDK in apps running in the background mode.
 System requirements
 -------------------
 
-The OpenTok iOS SDK is supported on the following devices:
-
-* iPhone -- iPhone 5s and later
-
-* iPad -- iPad Pro 1st generation and later, iPad (2017), iPad Air (all models),
-  iPad 4th generation, iPad mini 2 and later
-
-* iPod touch 6th generation and later
-
-The OpenTok iOS SDK is supported in iOS 13 or higher.
+The OpenTok iOS SDK is supported in iOS 15 or higher. Check the list of supported
+devices for iOS 15 [here](https://www.apple.com/by/ios/ios-15/)
 
 The OpenTok iOS SDK is supported on Wi-Fi, 4G/LTE, and 5G connections.
-
-The OpenTok iOS SDK supports one published audio-video stream, one
-subscribed audio-video stream, and up to three additional subscribed
-audio-only streams simultaneously on the iPhone 5s (the lowest-end
-device supported). On the iPhone 7, tests have shown support for
-subscribing to as many as 20 simultaneous low-resolution (200x200-pixel,
-15-frame-per-second) streams. To connect more than two clients in a
-session using the OpenTok iOS SDK, create a session that uses the OpenTok
-Media Router (a session with the media mode set to routed). See
-[The OpenTok Media Router and media
-modes](http://tokbox.com/developer/guides/create-session/#media-mode).
 
 Sample apps
 -----------

@@ -15,6 +15,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   spec.dependency 'OpenTok', '~> 2.0'  # Verify the correct version
+  spec.static_framework = true  # Add this line
   
 end
 

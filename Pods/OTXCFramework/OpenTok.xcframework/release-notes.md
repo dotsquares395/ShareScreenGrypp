@@ -4,6 +4,38 @@ OpenTok iOS SDK release notes
 New features and changes
 ------------------------
 
+### Version 2.30.0 -- May 2025
+
+* This version adds a mechanism to skip local network checks to establish media connectivity. This improves the user experience for iOS 14 networking changes affecting relayed session. See the [iOS 14 networking changes](https://tokbox.com/developer/guides/mobile/ios/#ios-14-networking) documentation.
+
+* This version adds quality improvements for the background blur and background replacement APIs.
+
+* This version adds support for VP9 codec end-to-end encryption.
+
+* This version adds support for camera controls such as torch and zoom. See the `OTPublisher.cameraTorch` and `OTPublisher.cameraZoomFactor` properties.
+
+* This version adds support for session migration. See the `OTSessionSettings.sessionMigration` property. For more information, see [this documentation](https://tokbox.com/developer/guides/server-rotation) documentation. This is a beta feature.
+
+### Version 2.28.4 -- February 2025
+
+* This version fixes an issue where sessions could not connect, in some cases, because of network connectivity problems.
+
+### Version 2.29.1 -- February 2025
+
+* This version fixes an issue where sessions could not connect, in some cases, because of network connectivity problems.
+
+* This version fixes an issue where sessions could not connect when using the IP Proxy feature through HTTP proxy servers that require the server name the client is attempting to connect to during handshaking.
+
+* This version fixes an issue where an error was not returned when sending signals with a publisher-only token.
+
+### Version 2.29.0 -- December 2024
+
+* This version of the SDK uses an updated version of WebRTC 121, which includes improvements in performance and stability.
+
+* This version adds performance improvements for Single Peer Connection.
+
+* This version of the SDK only supports iOS 15 or higher.
+
 ### Version 2.28.3 -- December 2024
 
 * This version fixes an issue where, in some cases, toggling audio or video immediately after publishing would prevent video from being displayed.
@@ -1111,7 +1143,18 @@ let session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self,
                         settings: settings)
 ```
 
+### Issues using Xcode Simulator to preview your app on a Mac with an M1 chip
+
+The Vonage Video API iOS SDK does not currently include support for arm64,
+which the Simulator requires when running on an M1 Mac. To work around
+this issue, run Xcode (and Simulator) in
+[Rosetta](https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment).
+
+This issue is fixed from version 2.25.0 onwards.
+
 ### Other known issues
+
+Emojis unexpectedly appear in videos in iOS 17. This is a result of the new Apple [Reactions](https://support.apple.com/en-us/105117) feature. At this time, there is no API or programmatic to turn this off. End-users must disable it during a video session. Open Control Center (by swiping down from the top-right corner or bottom of the screen, depending on the device), tap Video Effects, and then tap Reactions to disable it.
 
 In OpenTok sessions that use H.264 video, CPU usage can increase to
 a significant level if the app uses a publisher and four or more subscribers
@@ -1121,7 +1164,7 @@ This version of the OpenTok iOS SDK does not support displaying videos using
 Apple AirPlay.
 
 In a session with the [media
-mode](http://tokbox.com/opentok/tutorials/create-session/#media-mode)
+mode](https://tokbox.com/developer/guides/create-session/#media-mode)
 set to relayed, only one client can subscribe to a stream published by an
 iOS device.
 
@@ -1148,8 +1191,9 @@ other library that was compiled using Xcode 6.0.0 or later.
 
 Video streaming is prevented on networks that have firewalls that use
 authenticated proxies. This is due to a core issue with the current underlying
-WebRTC implementation. (See [this Chromium bug
-report](https://code.google.com/p/chromium/issues/detail?id=439560).)
+WebRTC implementation (see [this Chromium bug
+report](https://code.google.com/p/chromium/issues/detail?id=439560)) which is
+fixed now. We are working on determining whether this is still an issue for the Vonage Video API.
 
 In relayed sessions, applications do not display the red bar when running
 in the background, if no client subscribes to your stream before the app goes
@@ -1157,6 +1201,6 @@ into background mode.
 
 When setting a proxy URL (using the `Session.Builder.setProxyUrl()` method), please use the 
 absolute URL root path only. Using the proxy path in the URL does not work currently 
-and is a known bug. Hence "https://my-proxy.herokuapp.com" and 
+and is a known bug. Hence, "https://my-proxy.herokuapp.com" and
 "https://my-proxy.herokuapp.com:443" are acceptable, while 
 "https://my-proxy.herokuapp.com/" and "https://my-proxy.herokuapp.com/my-beta-app/version5" are not.

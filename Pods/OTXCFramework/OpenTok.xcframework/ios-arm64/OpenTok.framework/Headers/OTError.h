@@ -69,6 +69,10 @@ typedef NS_ENUM(int32_t, OTSessionErrorCode) {
     /** Unable to force mute, perhaps because the client's capabilities are limited. */
     OTSessionUnableToForceMute = 1540,
     
+    /** Unable to send signal, perhaps because the client's capabilities are limited
+     (e.g., a publisher-only token). */
+    OTSessionUnableToSendSignal = 1550,
+    
     /** The connection to the OpenTok messaging server was dropped.. */
     OTConnectionDropped = 1022,
     
@@ -129,6 +133,10 @@ typedef NS_ENUM(int32_t, OTPublisherErrorCode) {
     /** Internal error while encrypting a packet
      */
     OTPublisherEncryptionInternalError = 6001,
+    
+    /** Unsupported media codec for encryption
+     */
+    EncryptionUnsupportedCodec = 6005,
 };
 
 /**
@@ -177,6 +185,10 @@ typedef NS_ENUM(int32_t, OTSubscriberErrorCode) {
     /** Secret mismatch while decrypting a packet
      */
     EncryptionSecretMismatch = 6003,
+
+    /** Unsupported media codec for decryption
+     */
+    DecryptionUnsupportedCodec = 6006,
 };
 
 

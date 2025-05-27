@@ -1,9 +1,4 @@
-//
-//  Untitled.swift
-//  GryppSDk
-//
-//  Created by Hemraj Yogi on 12/05/25.
-//
+
 import Foundation
 
 struct GryppSession: Codable {

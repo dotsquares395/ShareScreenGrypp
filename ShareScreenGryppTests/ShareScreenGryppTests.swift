@@ -1,14 +1,8 @@
-//
-//  GryppSDkTests.swift
-//  GryppSDkTests
-//
-//  Created by Hemraj Yogi on 27/06/24.
-//
 
 import XCTest
-@testable import GryppSDk
+@testable import ShareScreenGrypp
 
-final class GryppSDkTests: XCTestCase {
+final class ShareScreenGryppTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

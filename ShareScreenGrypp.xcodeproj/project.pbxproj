@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		842944FA2DDAF5440075A3F0 /* Pods_GryppSDk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F53E41B6FA93D573400A /* Pods_GryppSDk.framework */; };
-		842944FB2DDAF5440075A3F0 /* Pods_GryppSDk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5747F53E41B6FA93D573400A /* Pods_GryppSDk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84CAFEC62C2D299F00D9397B /* ShareScreenGrypp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CAFEBB2C2D299E00D9397B /* ShareScreenGrypp.framework */; };
 		84D3747A2DE476E7000DB6DC /* ShareScreenGryppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D374782DE476E7000DB6DC /* ShareScreenGryppTests.swift */; };
-		84D374962DE587AD000DB6DC /* GryppSDk.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D374912DE587AD000DB6DC /* GryppSDk.h */; };
-		84D374972DE587AD000DB6DC /* GryppSDk.docc in Sources */ = {isa = PBXBuildFile; fileRef = 84D374922DE587AD000DB6DC /* GryppSDk.docc */; };
+		84D374962DE587AD000DB6DC /* ShareScreenGrypp.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D374912DE587AD000DB6DC /* ShareScreenGrypp.h */; };
+		84D374972DE587AD000DB6DC /* ShareScreenGrypp.docc in Sources */ = {isa = PBXBuildFile; fileRef = 84D374922DE587AD000DB6DC /* ShareScreenGrypp.docc */; };
 		84D374982DE587AD000DB6DC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84D374942DE587AD000DB6DC /* README.md */; };
 		84D374992DE587AD000DB6DC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 84D374932DE587AD000DB6DC /* LICENSE */; };
 		84D3749A2DE587AD000DB6DC /* ShareScreenGrypp.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84D374952DE587AD000DB6DC /* ShareScreenGrypp.podspec */; };
@@ -29,6 +27,7 @@
 		84D374B22DE58B3F000DB6DC /* Comman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3749B2DE58B3F000DB6DC /* Comman.swift */; };
 		84D374B32DE58B3F000DB6DC /* TouchCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D374A72DE58B3F000DB6DC /* TouchCaptureView.swift */; };
 		84D374B42DE58B3F000DB6DC /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3749E2DE58B3F000DB6DC /* Enumerations.swift */; };
+		B366937EAD32C783D0917306 /* Pods_ShareScreenGrypp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670F51C8425F86B8F03EA4ED /* Pods_ShareScreenGrypp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				842944FB2DDAF5440075A3F0 /* Pods_GryppSDk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,14 +54,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2648D63AABD31E618A6E44EB /* Pods-GryppSDk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GryppSDk.release.xcconfig"; path = "Target Support Files/Pods-GryppSDk/Pods-GryppSDk.release.xcconfig"; sourceTree = "<group>"; };
-		5747F53E41B6FA93D573400A /* Pods_GryppSDk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GryppSDk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		670F51C8425F86B8F03EA4ED /* Pods_ShareScreenGrypp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareScreenGrypp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75FDC92F254088D872803BFE /* Pods-ShareScreenGrypp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareScreenGrypp.release.xcconfig"; path = "Target Support Files/Pods-ShareScreenGrypp/Pods-ShareScreenGrypp.release.xcconfig"; sourceTree = "<group>"; };
 		842945012DDB0B570075A3F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		84CAFEBB2C2D299E00D9397B /* ShareScreenGrypp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShareScreenGrypp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CAFEC52C2D299F00D9397B /* ShareScreenGryppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareScreenGryppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D374782DE476E7000DB6DC /* ShareScreenGryppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareScreenGryppTests.swift; sourceTree = "<group>"; };
-		84D374912DE587AD000DB6DC /* GryppSDk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GryppSDk.h; sourceTree = "<group>"; };
-		84D374922DE587AD000DB6DC /* GryppSDk.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = GryppSDk.docc; sourceTree = "<group>"; };
+		84D374912DE587AD000DB6DC /* ShareScreenGrypp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareScreenGrypp.h; sourceTree = "<group>"; };
+		84D374922DE587AD000DB6DC /* ShareScreenGrypp.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ShareScreenGrypp.docc; sourceTree = "<group>"; };
 		84D374932DE587AD000DB6DC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		84D374942DE587AD000DB6DC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84D374952DE587AD000DB6DC /* ShareScreenGrypp.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShareScreenGrypp.podspec; sourceTree = "<group>"; };
@@ -80,7 +78,7 @@
 		84D374A52DE58B3F000DB6DC /* Screenshot_Permission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_Permission.png; sourceTree = "<group>"; };
 		84D374A62DE58B3F000DB6DC /* Screenshot_ScreenShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot_ScreenShare.png; sourceTree = "<group>"; };
 		84D374A72DE58B3F000DB6DC /* TouchCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCaptureView.swift; sourceTree = "<group>"; };
-		F51E15A26BD347EDBC128475 /* Pods-GryppSDk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GryppSDk.debug.xcconfig"; path = "Target Support Files/Pods-GryppSDk/Pods-GryppSDk.debug.xcconfig"; sourceTree = "<group>"; };
+		8980E8F5BEFA9514D368AEDC /* Pods-ShareScreenGrypp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareScreenGrypp.debug.xcconfig"; path = "Target Support Files/Pods-ShareScreenGrypp/Pods-ShareScreenGrypp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842944FA2DDAF5440075A3F0 /* Pods_GryppSDk.framework in Frameworks */,
+				B366937EAD32C783D0917306 /* Pods_ShareScreenGrypp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +137,8 @@
 				84D374A52DE58B3F000DB6DC /* Screenshot_Permission.png */,
 				84D374A62DE58B3F000DB6DC /* Screenshot_ScreenShare.png */,
 				84D374A72DE58B3F000DB6DC /* TouchCaptureView.swift */,
-				84D374912DE587AD000DB6DC /* GryppSDk.h */,
-				84D374922DE587AD000DB6DC /* GryppSDk.docc */,
+				84D374912DE587AD000DB6DC /* ShareScreenGrypp.h */,
+				84D374922DE587AD000DB6DC /* ShareScreenGrypp.docc */,
 				84D374932DE587AD000DB6DC /* LICENSE */,
 				84D374942DE587AD000DB6DC /* README.md */,
 				84D374952DE587AD000DB6DC /* ShareScreenGrypp.podspec */,
@@ -160,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				842945012DDB0B570075A3F0 /* WebKit.framework */,
-				5747F53E41B6FA93D573400A /* Pods_GryppSDk.framework */,
+				670F51C8425F86B8F03EA4ED /* Pods_ShareScreenGrypp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,8 +166,8 @@
 		E1B52E2D522BE6BB4F32C2D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F51E15A26BD347EDBC128475 /* Pods-GryppSDk.debug.xcconfig */,
-				2648D63AABD31E618A6E44EB /* Pods-GryppSDk.release.xcconfig */,
+				8980E8F5BEFA9514D368AEDC /* Pods-ShareScreenGrypp.debug.xcconfig */,
+				75FDC92F254088D872803BFE /* Pods-ShareScreenGrypp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -181,7 +179,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D374962DE587AD000DB6DC /* GryppSDk.h in Headers */,
+				84D374962DE587AD000DB6DC /* ShareScreenGrypp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +302,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GryppSDk-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ShareScreenGrypp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -317,19 +315,19 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GryppSDk/Pods-GryppSDk-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ShareScreenGrypp/Pods-ShareScreenGrypp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GryppSDk/Pods-GryppSDk-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ShareScreenGrypp/Pods-ShareScreenGrypp-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GryppSDk/Pods-GryppSDk-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShareScreenGrypp/Pods-ShareScreenGrypp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -339,7 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D374972DE587AD000DB6DC /* GryppSDk.docc in Sources */,
+				84D374972DE587AD000DB6DC /* ShareScreenGrypp.docc in Sources */,
 				84D374AC2DE58B3F000DB6DC /* ScreenCapturer.swift in Sources */,
 				84D374AD2DE58B3F000DB6DC /* CustomeAlert.swift in Sources */,
 				84D374AE2DE58B3F000DB6DC /* GryppSession.swift in Sources */,
@@ -499,7 +497,7 @@
 		};
 		84CAFED02C2D299F00D9397B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F51E15A26BD347EDBC128475 /* Pods-GryppSDk.debug.xcconfig */;
+			baseConfigurationReference = 8980E8F5BEFA9514D368AEDC /* Pods-ShareScreenGrypp.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,7 +537,7 @@
 		};
 		84CAFED12C2D299F00D9397B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2648D63AABD31E618A6E44EB /* Pods-GryppSDk.release.xcconfig */;
+			baseConfigurationReference = 75FDC92F254088D872803BFE /* Pods-ShareScreenGrypp.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -585,7 +583,7 @@
 				DEVELOPMENT_TEAM = 5NBYKWJL2V;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dotsquares.GryppSDkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dotsquares.ShareScreenGryppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -601,7 +599,7 @@
 				DEVELOPMENT_TEAM = 5NBYKWJL2V;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dotsquares.GryppSDkTests;
+				PRODUCT_BUNDLE_IDENTIFIER = dotsquares.ShareScreenGryppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

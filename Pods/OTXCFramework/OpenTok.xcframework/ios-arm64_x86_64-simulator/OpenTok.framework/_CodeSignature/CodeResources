@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/OTError.h</key>
 		<data>
-		y0h45RoSbg0T4yV9K7FFlyj9jks=
+		4W/ZVqnc85nltGfWUux/kWL3thk=
 		</data>
 		<key>Headers/OTMuteForcedInfo.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/OTPublisher.h</key>
 		<data>
-		JH9gcpbGBEvSTjGKY+idsmsKFvQ=
+		/L4R3n+WbJ8ZDJAUS7qhisGvlow=
 		</data>
 		<key>Headers/OTPublisherKit.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/OTSession.h</key>
 		<data>
-		fL4EDY4Mxarx9zSMrd8w/mqzQDk=
+		DdlwuqeUgVn+UqVzNfz8b1Dk+ew=
 		</data>
 		<key>Headers/OTStream.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Z5iD7tyM9s+GDpYDJGw8G+6ws5w=
+		cfu9vPw+ifrboSgeSvF5q/Brbu4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -71,6 +71,14 @@
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
 		jfT6xc0aIB98Nm3UDemY73/7cNg=
+		</data>
+		<key>VonageWebRTC_Privacy.bundle/Info.plist</key>
+		<data>
+		pQq+lzUjOTuKum90PkRBCrBkAo4=
+		</data>
+		<key>VonageWebRTC_Privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		g9plg1whAS5czmSg+n+YFmuvKGo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -101,11 +109,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y0h45RoSbg0T4yV9K7FFlyj9jks=
+			4W/ZVqnc85nltGfWUux/kWL3thk=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZoFD9sVq1fafDhHYPSuxp1S8CUAnbJ56NUxB5pV6k4M=
+			w2k7sY5KtRt76a7Z5nm160dMjJcWSILQ14/W/iUqtSw=
 			</data>
 		</dict>
 		<key>Headers/OTMuteForcedInfo.h</key>
@@ -134,11 +142,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JH9gcpbGBEvSTjGKY+idsmsKFvQ=
+			/L4R3n+WbJ8ZDJAUS7qhisGvlow=
 			</data>
 			<key>hash2</key>
 			<data>
-			iJjN5fwWu5KFTOa3BLSIEmy6h5KtZXIP2nPpsl7RcjA=
+			wDYm/UTczbLXnh4GyXPALeZpd9L60fNsMB942uD3c3U=
 			</data>
 		</dict>
 		<key>Headers/OTPublisherKit.h</key>
@@ -156,11 +164,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fL4EDY4Mxarx9zSMrd8w/mqzQDk=
+			DdlwuqeUgVn+UqVzNfz8b1Dk+ew=
 			</data>
 			<key>hash2</key>
 			<data>
-			uwS6hfgT11OdPVF2uqWY/jIw+DEzFokAAnAWwMAUJdM=
+			rK4e3lohBRBwwod0BQtCsyRUX6+EU8Lq0G0huczda4I=
 			</data>
 		</dict>
 		<key>Headers/OTStream.h</key>
@@ -249,6 +257,28 @@
 			<key>hash2</key>
 			<data>
 			4w4F/9CMylomM5LkSG0L8N3ThjEApQcD9zQvj2BcsGw=
+			</data>
+		</dict>
+		<key>VonageWebRTC_Privacy.bundle/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pQq+lzUjOTuKum90PkRBCrBkAo4=
+			</data>
+			<key>hash2</key>
+			<data>
+			hxf+Os1PGuoSZ3Baqb3G5yr4a7RX84qgICmp9IHBk84=
+			</data>
+		</dict>
+		<key>VonageWebRTC_Privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			g9plg1whAS5czmSg+n+YFmuvKGo=
+			</data>
+			<key>hash2</key>
+			<data>
+			qgtfSj3xWN8mXd/PZNIyYaVPfoqWZe8/qMlR3vHORZQ=
 			</data>
 		</dict>
 	</dict>
