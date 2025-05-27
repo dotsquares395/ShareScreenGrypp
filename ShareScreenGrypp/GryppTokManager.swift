@@ -72,19 +72,37 @@ public class GryppTokManager: NSObject {
     }
 
     // MARK: - App State Observers
-
+//
+//    private func setupAppStateObservers() {
+//        backgroundObserver = NotificationCenter.default.addObserver(
+//            forName:  Notification.Name.UIApplication.willEnterForeground,
+//            object: nil,
+//            queue: .main
+//        ) { [weak self] _ in self?.capturer?.stop() }
+//
+//        foregroundObserver = NotificationCenter.default.addObserver(
+//            forName: NSNotification.Name.UIApplication.willEnterForegroundNotification,
+//            object: nil,
+//            queue: .main
+//        ) { [weak self] _ in self?.capturer?.start() }
+//    }
+    
     private func setupAppStateObservers() {
         backgroundObserver = NotificationCenter.default.addObserver(
-            forName: UIApplication.didEnterBackgroundNotification,
+            forName: UIApplication.didEnterBackgroundNotification,  // Fixed name
             object: nil,
             queue: .main
-        ) { [weak self] _ in self?.capturer?.stop() }
+        ) { [weak self] _ in
+            _ = self?.capturer?.stop()  // Explicitly ignore result
+        }
 
         foregroundObserver = NotificationCenter.default.addObserver(
-            forName: UIApplication.willEnterForegroundNotification,
+            forName: UIApplication.willEnterForegroundNotification,  // Fixed name
             object: nil,
             queue: .main
-        ) { [weak self] _ in self?.capturer?.start() }
+        ) { [weak self] _ in
+            _ = self?.capturer?.start()  // Explicitly ignore result
+        }
     }
 
     private func removeAppStateObservers() {
@@ -97,34 +115,46 @@ public class GryppTokManager: NSObject {
     }
 
     // MARK: - Session Management
-
+    
     private func fetchScreenSharingDetails() {
         removePopup()
         guard let url = URL(string: "https://thirdparty.grypp.io/in-app-sessions/create-session") else {
             showAlert(message: "Invalid URL")
             return
         }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("grypp_live_xK2P9M7a1LqVb3Wz6JtD4RfXyE8Nc0Q5", forHTTPHeaderField: "APIKey")
 
         URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
-            guard let self = self, let data = data else {
+            guard let self = self else { return }
+            
+            if let error = error {
                 DispatchQueue.main.async {
-                    self?.showAlert(message: "Network error: \(error?.localizedDescription ?? "No data received")")
+                    self.showAlert(message: "Network error: \(error.localizedDescription)")
                 }
                 return
             }
+            
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    self.showAlert(message: "No data received")
+                }
+                return
+            }
+            
             do {
-                self.gryppSession = try JSONDecoder().decode(GryppSession.self, from: data)
-                print(self.gryppSession ?? "No session data received")
+                let session = try JSONDecoder().decode(GryppSession.self, from: data)
+                self.gryppSession = session
                 self.connectToSession(
-                    apiKey: self.gryppSession?.apiKey ?? "",
-                    sessionId: self.gryppSession?.sessionId ?? "",
-                    token: self.gryppSession?.customerToken ?? ""
+                    apiKey: session.apiKey,
+                    sessionId: session.sessionId,
+                    token: session.customerToken
                 )
                 DispatchQueue.main.async {
-                    self.showCustomPopup(title: "Connect Session", message: "Your session code is: \(self.gryppSession?.sessionCode ?? "")")
+                    self.showCustomPopup(title: "Connect Session",
+                                        message: "Your session code is: \(session.sessionCode)")
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -134,12 +164,59 @@ public class GryppTokManager: NSObject {
         }.resume()
     }
 
+//    private func fetchScreenSharingDetails() {
+//        removePopup()
+//        guard let url = URL(string: "https://thirdparty.grypp.io/in-app-sessions/create-session") else {
+//            showAlert(message: "Invalid URL")
+//            return
+//        }
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("grypp_live_xK2P9M7a1LqVb3Wz6JtD4RfXyE8Nc0Q5", forHTTPHeaderField: "APIKey")
+//
+//        URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
+//            guard let self = self, let data = data else {
+//                DispatchQueue.main.async {
+//                    self?.showAlert(message: "Network error: \(error?.localizedDescription ?? "No data received")")
+//                }
+//                return
+//            }
+//            do {
+//                self.gryppSession = try JSONDecoder().decode(GryppSession.self, from: data)
+//                print(self.gryppSession ?? "No session data received")
+//                self.connectToSession(
+//                    apiKey: self.gryppSession?.apiKey ?? "",
+//                    sessionId: self.gryppSession?.sessionId ?? "",
+//                    token: self.gryppSession?.customerToken ?? ""
+//                )
+//                DispatchQueue.main.async {
+//                    self.showCustomPopup(title: "Connect Session", message: "Your session code is: \(self.gryppSession?.sessionCode ?? "")")
+//                }
+//            } catch {
+//                DispatchQueue.main.async {
+//                    self.showAlert(message: "Failed to parse response: \(error.localizedDescription)")
+//                }
+//            }
+//        }.resume()
+//    }
+
+//    private func connectToSession(apiKey: String, sessionId: String, token: String) {
+//        session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
+//        var error: OTError?
+//        session?.connect(withToken: token, error: &error)
+//        if let error = error {
+//            print("Session connection error: \(error.localizedDescription)")
+//        }
+//    }
+    
     private func connectToSession(apiKey: String, sessionId: String, token: String) {
         session = OTSession(apiKey: apiKey, sessionId: sessionId, delegate: self)
         var error: OTError?
         session?.connect(withToken: token, error: &error)
         if let error = error {
-            print("Session connection error: \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                self.showAlert(message: "Session connection error: \(error.localizedDescription)")
+            }
         }
     }
 
@@ -187,31 +264,69 @@ public class GryppTokManager: NSObject {
 
     // MARK: - Screen Publishing
 
+//    private func startPublishingScreen() {
+//        let settings = OTPublisherSettings()
+//        settings.name = UIDevice.current.name
+//        settings.videoTrack = true
+//        settings.audioTrack = false
+//        publisher = OTPublisher(delegate: self, settings: settings)
+//        publisher?.videoType = .screen
+//        publisher?.audioFallbackEnabled = false
+//        capturer = ScreenCapturer(captureViewProvider: { GryppTokManager.appWindow?.topMostView() ?? UIView() })
+//        publisher?.videoCapture = capturer
+//        publisher?.videoCapture?.videoContentHint = UIDevice.current.userInterfaceIdiom == .pad ? .motion : .text
+//
+//        if let publisher = publisher {
+//            var error: OTError?
+//            session?.publish(publisher, error: &error)
+//            drawAgentCursor()
+//            drawLocalCursor()
+//            if let error = error {
+//                GryppTokManager.sessionDelegate?.sessionPublishFailure(error: error)
+//            } else {
+//                GryppTokManager.sessionDelegate?.sessionPublishSuccess(value: "Publisher started successfully")
+//            }
+//        }
+//    }
+
+    
     private func startPublishingScreen() {
+        guard let appWindow = GryppTokManager.appWindow else {
+            showAlert(message: "App window not available")
+            return
+        }
+        
         let settings = OTPublisherSettings()
         settings.name = UIDevice.current.name
         settings.videoTrack = true
         settings.audioTrack = false
+        
         publisher = OTPublisher(delegate: self, settings: settings)
         publisher?.videoType = .screen
         publisher?.audioFallbackEnabled = false
-        capturer = ScreenCapturer(captureViewProvider: { GryppTokManager.appWindow?.topMostView() ?? UIView() })
+        
+        capturer = ScreenCapturer(captureViewProvider: { appWindow.topMostView() ?? UIView() })
         publisher?.videoCapture = capturer
         publisher?.videoCapture?.videoContentHint = UIDevice.current.userInterfaceIdiom == .pad ? .motion : .text
 
         if let publisher = publisher {
             var error: OTError?
             session?.publish(publisher, error: &error)
-            drawAgentCursor()
-            drawLocalCursor()
+            
             if let error = error {
-                GryppTokManager.sessionDelegate?.sessionPublishFailure(error: error)
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Publish error: \(error.localizedDescription)")
+                    GryppTokManager.sessionDelegate?.sessionPublishFailure(error: error)
+                }
             } else {
+                drawAgentCursor()
+                drawLocalCursor()
                 GryppTokManager.sessionDelegate?.sessionPublishSuccess(value: "Publisher started successfully")
             }
         }
     }
-
+    
+    
     // MARK: - Cursor Drawing
 
     private func drawAgentCursor() {
@@ -338,26 +453,52 @@ public class GryppTokManager: NSObject {
         return []
     }
 
+//    func drawPath(from points: [CGPoint], stroke: String, strokeWidth: CGFloat) {
+//        let path = UIBezierPath()
+//        for (index, point) in points.enumerated() {
+//            if index == 0 {
+//                path.move(to: point)
+//            } else {
+//                path.addLine(to: point)
+//            }
+//        }
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.name = "grypp"
+//        shapeLayer.path = path.cgPath
+//        shapeLayer.strokeColor = UIColor(hex: stroke).cgColor
+//        shapeLayer.fillColor = UIColor.clear.cgColor
+//        shapeLayer.lineWidth = strokeWidth
+//        GryppTokManager.appWindow?.layer.addSublayer(shapeLayer)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+//            GryppTokManager.appWindow?.layer.sublayers?
+//                .filter { $0.name == "grypp" }
+//                .forEach { $0.removeFromSuperlayer() }
+//        }
+//    }
+    
     func drawPath(from points: [CGPoint], stroke: String, strokeWidth: CGFloat) {
+        guard let window = GryppTokManager.appWindow, !points.isEmpty else { return }
+        
         let path = UIBezierPath()
-        for (index, point) in points.enumerated() {
-            if index == 0 {
-                path.move(to: point)
-            } else {
-                path.addLine(to: point)
-            }
+        path.move(to: points[0])
+        
+        for point in points.dropFirst() {
+            path.addLine(to: point)
         }
+        
         let shapeLayer = CAShapeLayer()
         shapeLayer.name = "grypp"
         shapeLayer.path = path.cgPath
         shapeLayer.strokeColor = UIColor(hex: stroke).cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = strokeWidth
-        GryppTokManager.appWindow?.layer.addSublayer(shapeLayer)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            GryppTokManager.appWindow?.layer.sublayers?
-                .filter { $0.name == "grypp" }
-                .forEach { $0.removeFromSuperlayer() }
+        
+        DispatchQueue.main.async {
+            window.layer.addSublayer(shapeLayer)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                shapeLayer.removeFromSuperlayer()
+            }
         }
     }
 
@@ -453,20 +594,44 @@ extension GryppTokManager: OTSessionDelegate, OTPublisherDelegate {
         print("Session Grypp Stream destroyed: \(stream)")
     }
 
+//    public func session(_ session: OTSession, receivedSignalType type: String?, from connection: OTConnection?, with data: String?) {
+//        guard let dataConvertJsonString = data?.data(using: .utf8),
+//              let json = try? JSONSerialization.jsonObject(with: dataConvertJsonString) as? [String: Any] else {
+//            print("Signal JSON parsing error")
+//            return
+//        }
+//        print("📩 Signal type: \(type ?? "nil")")
+//        print("📦 Signal data: \(json)")
+//        guard let action = json["action"] as? String else { return }
+//        switch action {
+//        case "CodeRequested": handleCodeRequested(json)
+//        case "MARKER_MOVE": handleMarkerMove(json)
+//        case "draw": handleDraw(json)
+//        default: print("⚠️ Unhandled action: \(action)")
+//        }
+//    }
+    
     public func session(_ session: OTSession, receivedSignalType type: String?, from connection: OTConnection?, with data: String?) {
-        guard let dataConvertJsonString = data?.data(using: .utf8),
-              let json = try? JSONSerialization.jsonObject(with: dataConvertJsonString) as? [String: Any] else {
+        guard let data = data?.data(using: .utf8),
+              let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else {
             print("Signal JSON parsing error")
             return
         }
+        
         print("📩 Signal type: \(type ?? "nil")")
         print("📦 Signal data: \(json)")
+        
         guard let action = json["action"] as? String else { return }
+        
         switch action {
-        case "CodeRequested": handleCodeRequested(json)
-        case "MARKER_MOVE": handleMarkerMove(json)
-        case "draw": handleDraw(json)
-        default: print("⚠️ Unhandled action: \(action)")
+        case "CodeRequested":
+            handleCodeRequested(json)
+        case "MARKER_MOVE":
+            handleMarkerMove(json)
+        case "draw":
+            handleDraw(json)
+        default:
+            print("⚠️ Unhandled action: \(action)")
         }
     }
 
