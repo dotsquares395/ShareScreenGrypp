@@ -1,7 +1,7 @@
 import UIKit
 
 // MARK: - Custom Popup View Class
-class CustomPopupView: UIView {
+public class CustomPopupView: UIView {
 
     // MARK: - UI Elements
     private let containerView: UIView = {
@@ -87,6 +87,7 @@ class CustomPopupView: UIView {
     private func setupUI() {
         backgroundColor = UIColor.black.withAlphaComponent(0.5) // Semi-transparent background
         addSubview(containerView)
+        bringSubviewToFront(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(messageLabel)
         containerView.addSubview(buttonStackView)
@@ -163,17 +164,15 @@ class CustomPopupView: UIView {
         removeFromSuperview() 
     }
     // MARK: - Show Popup
-    func show(in view: UIView) {
+    func show(in window: UIWindow) {
         self.alpha = 0.0
-        view.addSubview(self)
-        
-        // Set constraints for the popup view to fill the entire screen.
+        window.addSubview(self)
         self.translatesAutoresizingMaskIntoConstraints = false;
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: view.topAnchor),
-            self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            self.topAnchor.constraint(equalTo: window.topAnchor),
+            self.bottomAnchor.constraint(equalTo: window.bottomAnchor),
+            self.leadingAnchor.constraint(equalTo: window.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: window.trailingAnchor),
         ])
         
         UIView.animate(withDuration: 0.3) {

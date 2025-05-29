@@ -2,11 +2,11 @@
 import UIKit
 import OpenTok
 
-class ScreenCapturer: NSObject, OTVideoCapture {
+public class ScreenCapturer: NSObject, OTVideoCapture {
 
     // MARK: - OTVideoCapture Properties
-    var videoCaptureConsumer: OTVideoCaptureConsumer?
-    var videoContentHint: OTVideoContentHint = .text
+    public var videoCaptureConsumer: OTVideoCaptureConsumer?
+    public var videoContentHint: OTVideoContentHint = .text
 
     // MARK: - Capture State
     private var captureViewProvider: () -> UIView
@@ -29,7 +29,7 @@ class ScreenCapturer: NSObject, OTVideoCapture {
     }
 
     // MARK: - OTVideoCapture Methods
-    func initCapture() {
+    public func initCapture() {
         timer = DispatchSource.makeTimerSource(queue: captureQueue)
         timer?.schedule(deadline: .now(), repeating: .milliseconds(300))
         timer?.setEventHandler { [weak self] in
@@ -37,7 +37,7 @@ class ScreenCapturer: NSObject, OTVideoCapture {
         }
     }
 
-    func start() -> Int32 {
+    public func start() -> Int32 {
         guard !capturing else { return 0 }
         capturing = true
         print("📸 start capture")
@@ -51,7 +51,7 @@ class ScreenCapturer: NSObject, OTVideoCapture {
         return 0
     }
 
-    func stop() -> Int32 {
+    public func stop() -> Int32 {
         guard capturing else { return 0 }
         capturing = false
         print("🛑 stop capture")
@@ -61,7 +61,7 @@ class ScreenCapturer: NSObject, OTVideoCapture {
         return 0
     }
 
-    func releaseCapture() {
+    public func releaseCapture() {
         if let timer = timer {
             if isTimerRunning {
                 timer.setEventHandler {}
@@ -72,11 +72,11 @@ class ScreenCapturer: NSObject, OTVideoCapture {
         }
     }
 
-    func isCaptureStarted() -> Bool {
+    public func isCaptureStarted() -> Bool {
         return capturing
     }
 
-    func captureSettings(_ videoFormat: OTVideoFormat) -> Int32 {
+    public func captureSettings(_ videoFormat: OTVideoFormat) -> Int32 {
         videoFormat.pixelFormat = .ARGB
         return 0
     }
@@ -120,10 +120,13 @@ class ScreenCapturer: NSObject, OTVideoCapture {
         var image = renderer.image { context in
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
         }
-        // Find sensitive subviews
         let sensitiveViews = view.sensitiveSubviews()
         for sensitiveView in sensitiveViews {
-            let rect = sensitiveView.convert(sensitiveView.bounds, to: view)
+            var rect = sensitiveView.convert(sensitiveView.bounds, to: view)
+            if let scrollView = sensitiveView.superview as? UIScrollView {
+                rect.origin.x -= scrollView.contentOffset.x
+                rect.origin.y -= scrollView.contentOffset.y
+            }
             if let redacted = image.redact(rect: rect, color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)) {
                 image = redacted
             }

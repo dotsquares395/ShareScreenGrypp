@@ -23,3 +23,30 @@ extension UIImage {
         return result
     }
 }
+extension UIImage {
+    func redactWithBlur(in rect: CGRect) -> UIImage? {
+        guard let ciImage = CIImage(image: self) else { return nil }
+
+        let blurFilter = CIFilter(name: "CIGaussianBlur")
+        blurFilter?.setValue(ciImage, forKey: kCIInputImageKey)
+        blurFilter?.setValue(10.0, forKey: kCIInputRadiusKey) // Adjust the blur strength
+
+        guard let outputCIImage = blurFilter?.outputImage else { return nil }
+
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(outputCIImage, from: ciImage.extent) else { return nil }
+
+        // Start drawing the final image
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        draw(at: .zero)
+
+        if let blurredPart = cgImage.cropping(to: rect) {
+            let blurredUIImage = UIImage(cgImage: blurredPart)
+            blurredUIImage.draw(in: rect)
+        }
+
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return result
+    }
+}
