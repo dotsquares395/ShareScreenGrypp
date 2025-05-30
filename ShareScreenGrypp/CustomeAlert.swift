@@ -85,7 +85,7 @@ public class CustomPopupView: UIView {
 
     // MARK: - UI Setup
     private func setupUI() {
-        backgroundColor = UIColor.black.withAlphaComponent(0.5) // Semi-transparent background
+        backgroundColor = UIColor.black.withAlphaComponent(0.5)
         addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(messageLabel)

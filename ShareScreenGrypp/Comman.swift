@@ -114,11 +114,9 @@ extension Notification.Name {
 class DrawingView: UIView {
     
     private var points: [CGPoint] = []
-    
-    // Add new point
     func addPoint(_ point: CGPoint) {
         points.append(point)
-        setNeedsDisplay() // Triggers a redraw
+        setNeedsDisplay()
     }
     
     override func draw(_ rect: CGRect) {

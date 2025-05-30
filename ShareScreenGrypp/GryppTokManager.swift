@@ -23,6 +23,7 @@ public class GryppTokManager: NSObject {
     private let localCursorDotView = UIView()
     private let localNameLabel = UILabel()
     private var customPopupView: CustomPopupView?
+    private var isLocalCursorScheduledForRemoval = false
 
     // MARK: - Observers
     private var backgroundObserver: NSObjectProtocol?
@@ -68,7 +69,7 @@ public class GryppTokManager: NSObject {
     public func disconnectFromSession() {
         var error: OTError?
         session?.disconnect(&error)
-        print(error == nil ? "Disconnected from session" : "Error disconnecting: \(error!.localizedDescription)")
+        print(error == nil ? "Disconnected session" : "Error disconnecting: \(error!.localizedDescription)")
     }
 
     // MARK: - App State Observers
@@ -201,10 +202,6 @@ public class GryppTokManager: NSObject {
         popup.cancelButtonAction = cancelAction
         popup.show(in: GryppTokManager.appWindow ?? UIWindow())
         customPopupView = popup
-       
-        
-        
-
     }
 
     private func removePopup() {
@@ -274,15 +271,7 @@ public class GryppTokManager: NSObject {
         setupCursor(view: localCursorView, label: localNameLabel, dot: localCursorDotView, color: .green, dotColor: .green)
     }
 
-//    private func updateLocalCursor(to point: CGPoint, agentName: String) {
-//        updateCursor(view: localCursorView, label: localNameLabel, dot: localCursorDotView, point: point, name: agentName, color: .green)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//            if self.localCursorView.superview != nil {
-//                self.localCursorView.removeFromSuperview()
-//            }
-//        }
-//    }
-    private var isLocalCursorScheduledForRemoval = false
+    
 
     private func updateLocalCursor(to point: CGPoint, agentName: String) {
         updateCursor(view: localCursorView, label: localNameLabel, dot: localCursorDotView, point: point, name: agentName, color: .green)
@@ -503,7 +492,7 @@ extension GryppTokManager: OTSessionDelegate, OTPublisherDelegate {
     }
 
     public func session(_ session: OTSession, connectionDestroyed connection: OTConnection) {
-        print("OpenTok: Connection destroyed: \(connection.connectionId)")
+        print("Connection destroyed: \(connection.connectionId)")
         DispatchQueue.main.async {
             self.cleanupResources()
             GryppTokManager.popupView?.removeFromSuperview()

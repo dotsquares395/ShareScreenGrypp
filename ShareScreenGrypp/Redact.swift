@@ -29,14 +29,13 @@ extension UIImage {
 
         let blurFilter = CIFilter(name: "CIGaussianBlur")
         blurFilter?.setValue(ciImage, forKey: kCIInputImageKey)
-        blurFilter?.setValue(10.0, forKey: kCIInputRadiusKey) // Adjust the blur strength
+        blurFilter?.setValue(10.0, forKey: kCIInputRadiusKey)
 
         guard let outputCIImage = blurFilter?.outputImage else { return nil }
 
         let context = CIContext()
         guard let cgImage = context.createCGImage(outputCIImage, from: ciImage.extent) else { return nil }
 
-        // Start drawing the final image
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         draw(at: .zero)
 
