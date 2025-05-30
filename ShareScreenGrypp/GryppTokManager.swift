@@ -69,7 +69,7 @@ public class GryppTokManager: NSObject {
     public func disconnectFromSession() {
         var error: OTError?
         session?.disconnect(&error)
-        print(error == nil ? "Disconnected session" : "Error disconnecting: \(error!.localizedDescription)")
+        print(error == nil ? "Disconnect session" : "Error disconnecting: \(error!.localizedDescription)")
     }
 
     // MARK: - App State Observers

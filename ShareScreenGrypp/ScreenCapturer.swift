@@ -205,7 +205,7 @@ public class ScreenCapturer: NSObject, OTVideoCapture {
             space: colorSpace,
             bitmapInfo: bitmapInfo
         ) else {
-            print("Error: Failed to create CGContext")
+            print("Error: Failed to create CGContext Data")
             return nil
         }
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))

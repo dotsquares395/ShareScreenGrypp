@@ -52,7 +52,7 @@ func extractPoints(from path: [[PathCommandValue]]) -> [CGPoint] {
     return points
 }
 
-public protocol sessionConnectGryppDelegate: AnyObject { // Added AnyObject
+public protocol sessionConnectGryppDelegate: AnyObject { 
     func sessionConnectGryppSuccess(value: String)
     func sessionDisconnectGryppSuccess(value: String)
     func sessionConnectGryppFailure(error: Error)

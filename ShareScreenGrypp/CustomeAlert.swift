@@ -98,13 +98,11 @@ public class CustomPopupView: UIView {
 
     // MARK: - Constraints Setup
     private func setupConstraints() {
-        // Center the container view
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             containerView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            containerView.widthAnchor.constraint(lessThanOrEqualToConstant: 300), // Max width for the popup
-            containerView.widthAnchor.constraint(greaterThanOrEqualToConstant: 250), // Minimum width
-            
+            containerView.widthAnchor.constraint(lessThanOrEqualToConstant: 300),
+            containerView.widthAnchor.constraint(greaterThanOrEqualToConstant: 250),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
@@ -118,7 +116,7 @@ public class CustomPopupView: UIView {
             buttonStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
             buttonStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
             
-            okButton.heightAnchor.constraint(equalToConstant: 40), // Consistent button height
+            okButton.heightAnchor.constraint(equalToConstant: 40),
             
         ])
         if let cancelButton = cancelButton{
@@ -152,12 +150,12 @@ public class CustomPopupView: UIView {
     // MARK: - Button Actions
     @objc private func okButtonTapped() {
         okButtonAction?()
-        removeFromSuperview() // Dismiss the popup
+        removeFromSuperview()
     }
 
     @objc private func cancelButtonTapped() {
         cancelButtonAction?()
-        removeFromSuperview() // Dismiss the popup
+        removeFromSuperview() 
     }
     func remove() {
         removeFromSuperview() 

@@ -21,8 +21,7 @@ public class DraggableButton: UIButton {
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
         addGestureRecognizer(panGesture)
         addTarget(self, action: #selector(tapped), for: .touchUpInside)
-        
-    }
+     }
     
     @objc private func tapped() {
         onTap?()
