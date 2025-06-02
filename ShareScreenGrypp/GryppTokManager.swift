@@ -327,8 +327,6 @@ public class GryppTokManager: NSObject {
         DispatchQueue.main.async {
             GryppTokManager.appWindow?.topMostView()?.addSubview(view)
        }
-        
-        
     }
 
     func handleTouch(at point: CGPoint, event: String) {
@@ -473,8 +471,8 @@ public class GryppTokManager: NSObject {
         GryppTokManager.appWindow?.layer.sublayers?
             .filter { $0.name == "grypp" }
             .forEach { $0.removeFromSuperlayer() }
-    }
-}
+     }
+  }
 
 // MARK: - OTSessionDelegate & OTPublisherDelegate
 
@@ -527,8 +525,8 @@ extension GryppTokManager: OTSessionDelegate, OTPublisherDelegate {
         print("📩 Signal type: \(type ?? "nil")")
         print("📦 Signal data: \(json)")
         if (type == "screenshare_ping") {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                if self.agentCursorView.superview != nil {
+            if self.agentCursorView.superview != nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                     self.agentCursorView.removeFromSuperview()
                 }
             }

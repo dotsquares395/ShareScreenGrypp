@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84956B5C2DE72A3500A3B339 /* blurr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84956B5B2DE72A3500A3B339 /* blurr.jpg */; };
 		84CAFEC62C2D299F00D9397B /* ShareScreenGrypp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CAFEBB2C2D299E00D9397B /* ShareScreenGrypp.framework */; };
 		84D3747A2DE476E7000DB6DC /* ShareScreenGryppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D374782DE476E7000DB6DC /* ShareScreenGryppTests.swift */; };
 		84D374962DE587AD000DB6DC /* ShareScreenGrypp.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D374912DE587AD000DB6DC /* ShareScreenGrypp.h */; };
@@ -58,7 +57,6 @@
 		670F51C8425F86B8F03EA4ED /* Pods_ShareScreenGrypp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareScreenGrypp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FDC92F254088D872803BFE /* Pods-ShareScreenGrypp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareScreenGrypp.release.xcconfig"; path = "Target Support Files/Pods-ShareScreenGrypp/Pods-ShareScreenGrypp.release.xcconfig"; sourceTree = "<group>"; };
 		842945012DDB0B570075A3F0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		84956B5B2DE72A3500A3B339 /* blurr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurr.jpg; sourceTree = "<group>"; };
 		84CAFEBB2C2D299E00D9397B /* ShareScreenGrypp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShareScreenGrypp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CAFEC52C2D299F00D9397B /* ShareScreenGryppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareScreenGryppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D374782DE476E7000DB6DC /* ShareScreenGryppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareScreenGryppTests.swift; sourceTree = "<group>"; };
@@ -133,13 +131,12 @@
 				84D3749F2DE58B3F000DB6DC /* GryppSession.swift */,
 				84D374A02DE58B3F000DB6DC /* GryppTokManager.swift */,
 				84D374A12DE58B3F000DB6DC /* Redact.swift */,
+				84D374A72DE58B3F000DB6DC /* TouchCaptureView.swift */,
 				84D374A22DE58B3F000DB6DC /* ScreenCapturer.swift */,
-				84956B5B2DE72A3500A3B339 /* blurr.jpg */,
 				84D374A32DE58B3F000DB6DC /* Screenshot_EndSission.png */,
 				84D374A42DE58B3F000DB6DC /* Screenshot_Maker.png */,
 				84D374A52DE58B3F000DB6DC /* Screenshot_Permission.png */,
 				84D374A62DE58B3F000DB6DC /* Screenshot_ScreenShare.png */,
-				84D374A72DE58B3F000DB6DC /* TouchCaptureView.swift */,
 				84D374912DE587AD000DB6DC /* ShareScreenGrypp.h */,
 				84D374922DE587AD000DB6DC /* ShareScreenGrypp.docc */,
 				84D374932DE587AD000DB6DC /* LICENSE */,
@@ -277,7 +274,6 @@
 				84D374A92DE58B3F000DB6DC /* Screenshot_EndSission.png in Resources */,
 				84D374AA2DE58B3F000DB6DC /* Screenshot_Permission.png in Resources */,
 				84D374AB2DE58B3F000DB6DC /* Screenshot_Maker.png in Resources */,
-				84956B5C2DE72A3500A3B339 /* blurr.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

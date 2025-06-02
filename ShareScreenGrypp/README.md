@@ -1,27 +1,65 @@
 ![ImagePicker](https://github.com/dotsquares395/ShareScreenGrypp/blob/main/ShareScreenGrypp/VIewController/Screenshot_ScreenShare.png)
 
-## Description
+## Overview
 
-**ShareScreenGrypp** I’ve developed a custom SDK that enables seamless screen sharing from a user’s mobile app to a web-based PlayConsole. It features secure session management, real-time screen streaming, and interactive tools like marker drawing and live cursor tracking from the web console. Users can see the agent’s cursor within the app for collaborative support. The SDK also includes options to end or disable sessions anytime, ensuring full control and privacy for both users and agents.
+**ShareScreenGrypp** is a custom iOS SDK that enables seamless screen sharing from a mobile app to a web-based PlayConsole. It includes secure session handling, real-time streaming, and interactive features such as marker drawing and remote cursor tracking. It’s built with privacy and control in mind — users and agents can start, stop, or disable sessions at any time.
 
+
+## Features
+
+- Secure real-time screen sharing to web consoles
+- Interactive marker drawing during sessions
+- Live agent cursor visibility in-app
+- Session control with start/stop functionality
+- Optimized for both iPhone and iPad
+
+
+## Requirements
+
+- iOS 15.0+
+- Swift 5.0+
+- Xcode 15+
+
+
+## Installation
+
+**ShareScreenGrypp** is available via [CocoaPods](https://cocoapods.org/pods/ShareScreenGrypp). 
+
+```ruby
+pod 'ShareScreenGrypp'  // Add the following line to your Podfile
+```
 
 ## Usage
 
-**ShareScreenGrypp** works as a normal controller, just instantiate it and present it.
+**1. Import the SDK** works as a normal controller, just instantiate it and present it.
 
 ```swift
     import ShareScreenGrypp
 ```
 
-**ShareScreenGrypp** "Call the connectScreenSharing function from your view controller’s button action, passing your app’s UIWindow. Ensure that appView is properly set to the interface you want to share during screen sharing."
+**2. Start Screen Sharing** "Call the connectScreenSharing function from your view controller’s button action, passing your app’s UIWindow. Ensure that appView is properly set to the interface you want to share during screen sharing."
 
 ```swift
     GryppTokManager.connectScreenSharing(appWindow:  UIWindow()) // Pass your app window
 ```
 
-**ShareScreenGrypp** "Use the FloatingButtonManager class from GryppFloatingButton to display the floating button for initiating screen sharing. This should be called in your view controller’s viewDidLoad or similar lifecycle method."
+**Add the Floating Button** "Use my custom Grypp button, which calls the FloatingButtonManager class to display the floating button for initiating screen sharing in your view controller."
 
 ```swift
+   class PassthroughWindow: UIWindow {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let floatingButton = FloatingButtonManager.shared.floatingButton,
+           floatingButton.frame.contains(point) {
+            return super.hitTest(point, with: event)
+        }
+        return nil
+    }
+}
+```
+
+```swift
+// FloatingButtonManager class
+
  protocol SessionConnectionDelegate {
     func SessionConnectionDelegate(value: String)
  }
@@ -130,16 +168,16 @@ class FloatingButtonManager {
  
 ```
 
-**ShareScreenGrypp** You need to call methods on the FloatingButtonManager from your view controller. or call SessionConnectionDelegate method to handle button actions.
+ *Delegate method:* You need to call methods on the FloatingButtonManager class from your view controller. or call SessionConnectionDelegate method to handle button actions.
 
+ ```swift
 
-   
-```swift
-
-    SessionConnectionDelegate // call your viewcontroller
+    SessionConnectionDelegate   //call your viewcontroller floating button delegate
 
     FloatingButtonManager.shared.delegate = self
     FloatingButtonManager.shared.showFloatingButton(windowObjectRef: scene.window ?? UIWindow())
+    
+    // Delegate method FloatingButtonManager Class:
     
      func SessionConnectionDelegate(value: String) {
         if let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
@@ -154,7 +192,7 @@ class FloatingButtonManager {
       }
 ```
 
-**ShareScreenGrypp** Your view controller should implement the sessionDelegate methods to manage session events.
+**4. Handle Session Events** Your view controller should implement the sessionDelegate methods to manage session events.
 
 ```swift
 extension Your viewController : sessionConnectGryppDelegate {
@@ -184,7 +222,7 @@ extension Your viewController : sessionConnectGryppDelegate {
 }
 ```
 
-**ShareScreenGrypp** please allow permission
+**Permissions** please allow permission
 
 ```swift
   - camera 
@@ -196,19 +234,7 @@ extension Your viewController : sessionConnectGryppDelegate {
 ![ImagePicker](https://github.com/dotsquares395/ShareScreenGrypp/blob/main/ShareScreenGrypp/VIewController/Screenshot_EndSission.png)
 
 
-## Installation
 
-**ScreenSharing** is available through [CocoaPods](https://cocoapods.org/pods/ShareScreenGrypp).
- To install it, simply add the following line to your Podfile:
-
-```ruby
-pod 'ShareScreenGrypp'
-```
-
-
-```ruby
-github "dotsquares395/ScreenSharing"
-```
 
 ## Author
 
@@ -223,13 +249,13 @@ Copyright (c) 2024 Dotsquares Ltd
 
 **ShareScreenGrypp** version vs Swift version.
 
-ScreenSharing 13.0+ is Swift 5 ready! 🎉
+ShareScreenGrypp 15.0+ is Swift 5 ready! 🎉
 
 If you use earlier version of Swift - refer to the table below:
 
-| Swift version | ImageViewer version               |
+| Swift version | ShareScreenGrypp version               |
 | ------------- | --------------------------------- |
-| 5.x           | >= 13.0                       |
+| 5.x           | >= 15.0                       |
 
 
 

@@ -106,11 +106,6 @@ extension UIColor {
     }
 }
 
-extension Notification.Name {
-    static let orientationChanged = Notification.Name("Orientation")
-}
-
-
 class DrawingView: UIView {
     
     private var points: [CGPoint] = []
